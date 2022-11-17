@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborProtectionClient", "LaborProtectionClient\LaborProtectionClient.csproj", "{78277843-A81F-4B43-B3F5-B26A9C450316}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78277843-A81F-4B43-B3F5-B26A9C450316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78277843-A81F-4B43-B3F5-B26A9C450316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78277843-A81F-4B43-B3F5-B26A9C450316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78277843-A81F-4B43-B3F5-B26A9C450316}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C979A7A6-565C-46C1-AD1C-089702D7B0AC}
+	EndGlobalSection
+EndGlobal
