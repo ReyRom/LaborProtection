@@ -1,0 +1,15 @@
+<Array>
+	<Question Type="Text" Text="">
+		<Answer IsCorrect="True"></Answer>
+	</Question>
+	<Question Type="One" Text="">
+		<Answer IsCorrect="True"></Answer>
+		<Answer IsCorrect="False"></Answer>
+		<Answer IsCorrect="False"></Answer>
+	</Question>
+	<Question Type="Many" Text="">
+		<Answer IsCorrect="True"></Answer>
+		<Answer IsCorrect="True"></Answer>
+		<Answer IsCorrect="False"></Answer>
+	</Question>
+</Array>

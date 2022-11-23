@@ -1,0 +1,31 @@
+﻿<Page x:Class="LaborProtectionClient.View.TestListPage"
+      x:Name="page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LaborProtectionClient.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TestListPage">
+
+    <Grid Background="White">
+        <DockPanel>
+
+            <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="100" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <StackPanel x:Name="TestPanel" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding Test}" >
+                <TextBlock Text="{Binding Name}"></TextBlock>
+                <TextBlock Text="{Binding Description}"></TextBlock>
+                <Button Content="Начать тест" CommandParameter="{Binding ElementName=page, Path=DataContext.Test}" Command="{Binding ElementName=page, Path=DataContext.StartTestCommand}"></Button>
+            </StackPanel>
+
+        </DockPanel>
+    </Grid>
+</Page>
