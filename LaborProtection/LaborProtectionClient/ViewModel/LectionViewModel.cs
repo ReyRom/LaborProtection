@@ -23,7 +23,6 @@ namespace LaborProtectionClient.ViewModel
             {
                 Lections.Add(new Lection() { Name = Path.GetFileName(file), Url = file });
             }
-            
         }
 
         Command openLectionCommand;

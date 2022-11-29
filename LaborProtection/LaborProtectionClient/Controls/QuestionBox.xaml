@@ -11,7 +11,7 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding Text}"/>
             <StackPanel x:Name="AnswersPanel">
             </StackPanel>
-            <Button Content="Отправить" Click="Button_Click"/>
+            <Button Content="Отправить" Click="Button_Click" x:Name="SendButton"/>
         </StackPanel>
     </Grid>
 </UserControl>

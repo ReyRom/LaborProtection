@@ -1,19 +1,7 @@
 ﻿using LaborProtectionClient.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LaborProtectionClient.Controls
 {
@@ -22,18 +10,22 @@ namespace LaborProtectionClient.Controls
     /// </summary>
     public partial class QuestionBox : UserControl
     {
-        private Question? question;
-
-        public Question? Question 
-        { 
-            get => question;
+        public static readonly DependencyProperty QuestionProperty =
+            DependencyProperty.Register("Question", typeof(Question), typeof(QuestionBox));
+        public Question Question
+        {
+            get
+            {
+                return (Question)GetValue(QuestionProperty);
+            }
             set
             {
-                question = value;
-                GenerateAnswerBoxes(value);
+                SetValue(QuestionProperty, value);
             }
         }
+
         public string Text { get => Question?.Text; }
+
 
         public QuestionBox()
         {
@@ -44,6 +36,11 @@ namespace LaborProtectionClient.Controls
         {
             Question = q;
             GenerateAnswerBoxes(q);
+        }
+
+        public void Initialize()
+        {
+            GenerateAnswerBoxes(Question);
         }
 
         public event EventHandler SendButton_Click;
@@ -78,6 +75,28 @@ namespace LaborProtectionClient.Controls
                 item.Tag = answer;
                 AnswersPanel.Children.Add(item);
             }
+        }
+
+        public bool CheckAnswer()
+        {
+            bool isCorrect = true;
+            foreach (var answer in AnswersPanel.Children)
+            {
+                if (answer is RadioButton rb)
+                {
+                    isCorrect = ((Answer)rb.Tag).IsCorrect == (rb.IsChecked ?? false);
+                }
+                else if (answer is CheckBox cb)
+                {
+                    isCorrect = ((Answer)cb.Tag).IsCorrect == (cb.IsChecked ?? false);
+                }
+                else if (answer is TextBox tb)
+                {
+                    isCorrect = ((Answer)tb.Tag).Text == tb.Text;
+                }
+                if (!isCorrect) return false;
+            }
+            return true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

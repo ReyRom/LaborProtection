@@ -22,10 +22,30 @@ namespace LaborProtectionClient.View
     /// </summary>
     public partial class TestPage : Page
     {
+        int score = 0;
         public TestPage(Test test)
         {
             InitializeComponent();
             DataContext = new TestViewModel(test);
+        }
+
+        private void QuestionBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            QuestionBox.Initialize();
+        }
+
+        private void QuestionBox_SendButton_Click(object sender, EventArgs e)
+        {
+            if (QuestionBox.CheckAnswer()) score++;
+            var q = (DataContext as TestViewModel).Increment();
+            if(q != null)
+            {
+                QuestionBox.Initialize(q);
+            }
+            else
+            {
+                MessageBox.Show(score.ToString());
+            }
         }
     }
 }
