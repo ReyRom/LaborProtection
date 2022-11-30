@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Xml;
 
 namespace LaborProtectionClient.Model
 {
-    public class Question
+    public class Question: INotifyPropertyChanged
     {
         public Question()
         {
@@ -20,5 +21,7 @@ namespace LaborProtectionClient.Model
         public string Text { get; set; }
         public List<Answer> Answers { get; set; }
         public QuestionType Type { get; set; }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

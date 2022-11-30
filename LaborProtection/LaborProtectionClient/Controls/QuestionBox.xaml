@@ -12,6 +12,7 @@
             <StackPanel x:Name="AnswersPanel">
             </StackPanel>
             <Button Content="Отправить" Click="Button_Click" x:Name="SendButton"/>
+            <ProgressBar x:Name="TimerProgressBar" Height="20" Value="{Binding Delay, Mode=OneWay}"/>
         </StackPanel>
     </Grid>
 </UserControl>

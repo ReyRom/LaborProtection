@@ -1,13 +1,16 @@
 ﻿using LaborProtectionClient.Controls;
 using LaborProtectionClient.Extensions;
 using LaborProtectionClient.Model;
+using System.ComponentModel;
 
 namespace LaborProtectionClient.ViewModel
 {
-    public class TestViewModel
+    public class TestViewModel:INotifyPropertyChanged
     {
         private Test test;
         private int qNumber = 0;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public Question CurrentQuestion
         {

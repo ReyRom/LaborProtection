@@ -1,15 +1,22 @@
 ﻿using LaborProtectionClient.Model;
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace LaborProtectionClient.Controls
 {
     /// <summary>
     /// Логика взаимодействия для QuestionBox.xaml
     /// </summary>
-    public partial class QuestionBox : UserControl
+    public partial class QuestionBox : UserControl, INotifyPropertyChanged
     {
+        private System.Windows.Threading.DispatcherTimer timer;
+
+
+        private int delay;
         public static readonly DependencyProperty QuestionProperty =
             DependencyProperty.Register("Question", typeof(Question), typeof(QuestionBox));
         public Question Question
@@ -21,29 +28,76 @@ namespace LaborProtectionClient.Controls
             set
             {
                 SetValue(QuestionProperty, value);
+                OnPropertyChanged("Text");
             }
         }
 
         public string Text { get => Question?.Text; }
 
+        public int Delay { get => delay; }
 
         public QuestionBox()
         {
             InitializeComponent();
             DataContext = this;
+            timer = new();
+            timer.Interval = new TimeSpan(0,0,1);
+            timer.Tick += Timer_Tick;
         }
+
+        public event EventHandler TimerEnd;
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            if (delay == 0)
+            {
+                timer.Stop();
+
+            }
+            delay--;
+            OnPropertyChanged("Delay");
+        }
+
         public void Initialize(Question q)
         {
             Question = q;
             GenerateAnswerBoxes(q);
+            StartTimer(q);
         }
 
         public void Initialize()
         {
             GenerateAnswerBoxes(Question);
+            StartTimer(Question);
         }
 
         public event EventHandler SendButton_Click;
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void StartTimer(Question q)
+        {
+            switch (q.Type)
+            {
+                case QuestionType.One:
+                    delay = 30;
+                    break;
+                case QuestionType.Many:
+                    delay = 45;
+                    break;
+                case QuestionType.Text:
+                    delay = 60;
+                    break;
+            }
+            delay = delay;
+            TimerProgressBar.Maximum = delay;
+            OnPropertyChanged("Delay");
+            timer.Start();
+        }
 
         public void GenerateAnswerBoxes(Question q)
         {
@@ -82,13 +136,9 @@ namespace LaborProtectionClient.Controls
             bool isCorrect = true;
             foreach (var answer in AnswersPanel.Children)
             {
-                if (answer is RadioButton rb)
+                if (answer is ToggleButton b)
                 {
-                    isCorrect = ((Answer)rb.Tag).IsCorrect == (rb.IsChecked ?? false);
-                }
-                else if (answer is CheckBox cb)
-                {
-                    isCorrect = ((Answer)cb.Tag).IsCorrect == (cb.IsChecked ?? false);
+                    isCorrect = ((Answer)b.Tag).IsCorrect == (b.IsChecked ?? false);
                 }
                 else if (answer is TextBox tb)
                 {
