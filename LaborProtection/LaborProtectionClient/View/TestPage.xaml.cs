@@ -34,7 +34,7 @@ namespace LaborProtectionClient.View
             QuestionBox.Initialize();
         }
 
-        private void QuestionBox_SendButton_Click(object sender, EventArgs e)
+        private void QuestionBox_NextQuestion(object sender, EventArgs e)
         {
             if (QuestionBox.CheckAnswer()) score++;
             var q = (DataContext as TestViewModel).Increment();

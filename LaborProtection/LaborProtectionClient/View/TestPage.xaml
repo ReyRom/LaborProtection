@@ -10,6 +10,6 @@
       Title="TestPage">
 
     <Grid Background="White">
-        <Controls:QuestionBox VerticalAlignment="Center" Width="300" x:Name="QuestionBox" Question="{Binding ElementName=page, Path=DataContext.CurrentQuestion}" Loaded="QuestionBox_Loaded" SendButton_Click="QuestionBox_SendButton_Click"/>
+        <Controls:QuestionBox VerticalAlignment="Center" Width="300" x:Name="QuestionBox" Question="{Binding ElementName=page, Path=DataContext.CurrentQuestion}" Loaded="QuestionBox_Loaded" SendButton_Click="QuestionBox_NextQuestion" TimerEnd="QuestionBox_NextQuestion"/>
     </Grid>
 </Page>

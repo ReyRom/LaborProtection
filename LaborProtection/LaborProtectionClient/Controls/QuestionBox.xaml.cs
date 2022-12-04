@@ -52,7 +52,7 @@ namespace LaborProtectionClient.Controls
             if (delay == 0)
             {
                 timer.Stop();
-
+                TimerEnd?.Invoke(this, EventArgs.Empty);
             }
             delay--;
             OnPropertyChanged("Delay");
