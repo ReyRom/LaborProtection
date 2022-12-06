@@ -27,6 +27,7 @@ namespace LaborProtectionClient.View
         public TestPage(Test test)
         {
             InitializeComponent();
+            maxScore = test.Questions.Count;
             DataContext = new TestViewModel(test);
         }
 
@@ -41,7 +42,6 @@ namespace LaborProtectionClient.View
             var q = (DataContext as TestViewModel).Increment();
             if(q != null)
             {
-                maxScore++;
                 QuestionBox.Initialize(q);
             }
             else

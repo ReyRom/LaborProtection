@@ -11,14 +11,17 @@
 
     <Grid Background="White">
         <DockPanel>
-
-            <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="100" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel>
+                <Button Content="⬅ К лекциям" Click="Button_Click"></Button>
+                <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="100" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            
 
             <StackPanel x:Name="TestPanel" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding Test}" >
                 <TextBlock Text="{Binding Name}"></TextBlock>

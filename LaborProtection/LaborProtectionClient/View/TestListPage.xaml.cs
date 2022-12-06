@@ -27,5 +27,10 @@ namespace LaborProtectionClient.View
 
             DataContext = new TestListViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainViewModel.MainFrame.Navigate(new LectionPage());
+        }
     }
 }

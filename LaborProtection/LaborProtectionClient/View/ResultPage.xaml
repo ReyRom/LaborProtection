@@ -13,6 +13,7 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding ElementName=page, Path=DataContext}">
             <TextBlock Text="Результат:"></TextBlock>
             <TextBlock Text="{Binding Result}"></TextBlock>
+            <Button Content="Вернуться к тестам" Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Page>
