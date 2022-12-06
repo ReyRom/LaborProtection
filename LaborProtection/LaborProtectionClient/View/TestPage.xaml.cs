@@ -23,6 +23,7 @@ namespace LaborProtectionClient.View
     public partial class TestPage : Page
     {
         int score = 0;
+        int maxScore = 0;
         public TestPage(Test test)
         {
             InitializeComponent();
@@ -40,11 +41,12 @@ namespace LaborProtectionClient.View
             var q = (DataContext as TestViewModel).Increment();
             if(q != null)
             {
+                maxScore++;
                 QuestionBox.Initialize(q);
             }
             else
             {
-                MessageBox.Show(score.ToString());
+                MainViewModel.MainFrame.Navigate(new ResultPage(maxScore, score));
             }
         }
     }
