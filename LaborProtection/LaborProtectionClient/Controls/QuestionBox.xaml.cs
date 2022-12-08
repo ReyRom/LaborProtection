@@ -93,7 +93,6 @@ namespace LaborProtectionClient.Controls
                     delay = 60;
                     break;
             }
-            delay = delay;
             TimerProgressBar.Maximum = delay;
             OnPropertyChanged("Delay");
             timer.Start();
