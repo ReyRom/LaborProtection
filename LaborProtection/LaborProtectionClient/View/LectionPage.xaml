@@ -28,7 +28,25 @@
                     </Style>
                 </StackPanel.Style>
                 <Button Content="⬅ К тестам" Click="Button_Click"></Button>
-                <ListBox ItemsSource="{Binding Lections}" Width="200" HorizontalContentAlignment="Stretch">
+                <ListBox ItemsSource="{Binding Lections.View}" Width="200" HorizontalContentAlignment="Stretch">
+                    <ListBox.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="FontFamily" Value="Verdana"/>
+                                                <Setter Property="Foreground" Value="#2D0A8F" />
+                                                <Setter Property="FontSize" Value="12"/>
+                                                <Setter Property="Padding" Value="3"/>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListBox.GroupStyle>
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
                             <Setter Property="Margin" Value="1"/>
@@ -46,7 +64,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Button  Content="{Binding Path=Name}" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}">
+                                <Button Content="{Binding Path=Name}" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}">
                                 </Button>
                             </Grid>
                         </DataTemplate>

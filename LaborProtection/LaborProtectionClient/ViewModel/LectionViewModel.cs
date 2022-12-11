@@ -8,21 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace LaborProtectionClient.ViewModel
 {
     public class LectionViewModel
     {
         WebBrowser viewer;
-        public List<Lection> Lections { get; set; }
+        private string lectionsPath = Path.Combine(Environment.CurrentDirectory, "Lections");
+        public CollectionViewSource Lections { get; set; }
         public LectionViewModel(WebBrowser web)
         {
             viewer = web;
-            Lections = new List<Lection>();
-            foreach (var file in Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "Lections")))
+            var list = new List<Lection>();
+            foreach (var file in Directory.GetFiles(lectionsPath,"", SearchOption.AllDirectories))
             {
-                Lections.Add(new Lection() { Name = Path.GetFileName(file), Url = file });
+                list.Add(new Lection() {Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileName(file), Url = file });
             }
+            var view = new CollectionViewSource();
+            view.GroupDescriptions.Add(new PropertyGroupDescription("Group"));
+            view.Source = list;
+            Lections = view;
         }
 
         Command openLectionCommand;

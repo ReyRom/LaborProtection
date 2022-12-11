@@ -10,6 +10,8 @@ namespace LaborProtectionClient.Model
     {
         public string Name { get; set; }
         public string Url { get; set; }
+
+        public string Group { get; set; }
         //public Lection? NextLection { get; set; }
         //public Lection? PrevLection { get; set; }
     }
