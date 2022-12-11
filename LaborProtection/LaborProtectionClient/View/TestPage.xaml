@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TestPage">
 
-    <Grid Background="White">
+    <Grid Background="#BED6F6">
         <Controls:QuestionBox VerticalAlignment="Center" Width="300" x:Name="QuestionBox" Question="{Binding ElementName=page, Path=DataContext.CurrentQuestion}" Loaded="QuestionBox_Loaded" SendButton_Click="QuestionBox_NextQuestion" TimerEnd="QuestionBox_NextQuestion"/>
     </Grid>
 </Page>

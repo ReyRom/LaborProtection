@@ -25,7 +25,7 @@
             <Setter Property="Padding" Value="10,5"/>
         </Style>
     </Page.Resources>
-    <Grid Background="White">
+    <Grid Background="#BED6F6">
         
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Охрана труда"/>
