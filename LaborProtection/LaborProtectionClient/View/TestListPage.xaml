@@ -8,12 +8,42 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TestListPage">
-
-    <Grid Background="White">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#2D0A8F" />
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#A3B7EE" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#BED6F6">
         <DockPanel>
             <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Background" Value="#A3B7EE"/>
+                    </Style>
+                </StackPanel.Style>
                 <Button Content="⬅ К лекциям" Click="Button_Click"></Button>
-                <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="100" HorizontalContentAlignment="Stretch">
+                <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="200" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Name}"/>
@@ -24,8 +54,13 @@
             
 
             <StackPanel x:Name="TestPanel" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding Test}" >
-                <TextBlock Text="{Binding Name}"></TextBlock>
-                <TextBlock Text="{Binding Description}"></TextBlock>
+                <TextBlock Text="{Binding Name}">
+                    <TextBlock.Margin>10</TextBlock.Margin>
+                    <TextBlock.FontSize>30</TextBlock.FontSize>
+                </TextBlock>
+                <TextBlock Text="{Binding Description}">
+                    <TextBlock.Margin>10</TextBlock.Margin>
+                </TextBlock>
                 <Button Content="Начать тест" CommandParameter="{Binding ElementName=page, Path=DataContext.Test}" Command="{Binding ElementName=page, Path=DataContext.StartTestCommand}"></Button>
             </StackPanel>
 

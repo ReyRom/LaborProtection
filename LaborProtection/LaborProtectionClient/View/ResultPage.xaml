@@ -8,11 +8,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ResultPage">
-
-    <Grid Background="White">
+    
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#BED6F6">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding ElementName=page, Path=DataContext}">
-            <TextBlock Text="Результат:"></TextBlock>
-            <TextBlock Text="{Binding Result}"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Результат: {0}, Path=Score}"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Оценка: {0}, Path=Result}"></TextBlock>
             <Button Content="Вернуться к тестам" Click="Button_Click"/>
         </StackPanel>
     </Grid>

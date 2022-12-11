@@ -7,9 +7,29 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StartPage">
-
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Page.Resources>
     <Grid Background="White">
+        
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Охрана труда"/>
+            <TextBlock Text="в образовательных организациях"/>
             <Button Content="Лекции" Click="LectionButton_Click"/>
             <Button Content="Тестирование" Click="TestingButton_Click"/>
             <Button Content="Выход" Click="ExitButton_Click"/>

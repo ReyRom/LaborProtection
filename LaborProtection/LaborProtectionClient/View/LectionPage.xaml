@@ -7,22 +7,47 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WebPage">
-    
-    <Grid Background="White">
+    <Page.Resources>
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="#A3B7EE" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#BED6F6">
         <DockPanel>
             <StackPanel>
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Background" Value="#A3B7EE"/>
+                    </Style>
+                </StackPanel.Style>
                 <Button Content="⬅ К тестам" Click="Button_Click"></Button>
-                <ListBox ItemsSource="{Binding Lections}" Width="100" HorizontalContentAlignment="Stretch">
+                <ListBox ItemsSource="{Binding Lections}" Width="200" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="1"/>
                             <Setter Property="Padding" Value="0"/>
                             <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <ContentPresenter/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Button  Content="{Binding Path=Name}" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}"/>
+                                <Button  Content="{Binding Path=Name}" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}">
+                                </Button>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

@@ -6,13 +6,50 @@
              xmlns:local="clr-namespace:LaborProtectionClient.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="White">
+    <Control.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Background" Value="#6C8CE2" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="Foreground" Value="#2D0A8F" />
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Control.Resources>
+    <Grid>
         <StackPanel>
             <TextBlock TextWrapping="Wrap" Text="{Binding Text}"/>
             <StackPanel x:Name="AnswersPanel">
             </StackPanel>
             <Button Content="Отправить" Click="Button_Click" x:Name="SendButton"/>
-            <ProgressBar x:Name="TimerProgressBar" Height="20" Value="{Binding Delay, Mode=OneWay}"/>
+            <TextBlock Height="20" Text="{Binding Delay, Mode=OneWay}"/>
         </StackPanel>
     </Grid>
 </UserControl>

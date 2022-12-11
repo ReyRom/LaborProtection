@@ -87,13 +87,12 @@ namespace LaborProtectionClient.Controls
                     delay = 30;
                     break;
                 case QuestionType.Many:
-                    delay = 45;
-                    break;
-                case QuestionType.Text:
                     delay = 60;
                     break;
+                case QuestionType.Text:
+                    delay = 90;
+                    break;
             }
-            TimerProgressBar.Maximum = delay;
             OnPropertyChanged("Delay");
             timer.Start();
         }
