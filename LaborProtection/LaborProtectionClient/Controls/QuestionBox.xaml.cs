@@ -107,13 +107,13 @@ namespace LaborProtectionClient.Controls
                 {
                     case QuestionType.One:
                         var r = new RadioButton();
-                        r.Content = answer.Text;
+                        r.Content = new TextBlock() { Text = answer.Text };
                         item = r;
                         break;
                     case QuestionType.Many:
                         var c = new CheckBox();
                         item = c;
-                        c.Content = answer.Text;
+                        c.Content = new TextBlock() { Text = answer.Text };
                         break;
                     case QuestionType.Text:
                         var t = new TextBox();

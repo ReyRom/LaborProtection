@@ -23,13 +23,14 @@
             <Setter Property="Foreground" Value="#2D0A8F" />
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="15"/>
         </Style>
     </Page.Resources>
     <Grid Background="#BED6F6">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{Binding ElementName=page, Path=DataContext}">
             <TextBlock Text="{Binding StringFormat=Результат: {0}, Path=Score}"></TextBlock>
             <TextBlock Text="{Binding StringFormat=Оценка: {0}, Path=Result}"></TextBlock>
-            <Button Content="Вернуться к тестам" Click="Button_Click"/>
+            <Button Content="Вернуться к тестам"  Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Page>

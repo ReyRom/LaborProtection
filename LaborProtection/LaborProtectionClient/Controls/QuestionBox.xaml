@@ -21,35 +21,32 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="Verdana" />
             <Setter Property="Foreground" Value="#2D0A8F" />
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
         <Style TargetType="CheckBox">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="Foreground" Value="#2D0A8F" />
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="10,5"/>
         </Style>
         <Style TargetType="RadioButton">
-            <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="Foreground" Value="#2D0A8F" />
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="10,5"/>
         </Style>
         <Style TargetType="TextBox">
-            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,5"/>
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Verdana" />
-            <Setter Property="Foreground" Value="#2D0A8F" />
-            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Padding" Value="5"/>
         </Style>
     </Control.Resources>
     <Grid>
-        <StackPanel>
+        <Border Background="White" CornerRadius="10,10,10,10" >
+            <Border.Effect>
+                <BlurEffect Radius="2"/>
+            </Border.Effect>
+        </Border>
+        <StackPanel Margin="30">
             <TextBlock TextWrapping="Wrap" Text="{Binding Text}"/>
             <StackPanel x:Name="AnswersPanel">
             </StackPanel>
             <Button Content="Отправить" Click="Button_Click" x:Name="SendButton"/>
-            <TextBlock Height="20" Text="{Binding Delay, Mode=OneWay}"/>
+            <TextBlock Height="20" Text="{Binding StringFormat=\{0\}с, Path=Delay}"/>
         </StackPanel>
     </Grid>
 </UserControl>

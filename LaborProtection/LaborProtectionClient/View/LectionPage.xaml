@@ -9,6 +9,7 @@
       Title="WebPage">
     <Page.Resources>
         <Style TargetType="ListBox">
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="#A3B7EE" />
         </Style>
         <Style TargetType="Button">
@@ -17,6 +18,7 @@
             <Setter Property="Foreground" Value="#2D0A8F" />
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="10,5"/>
+            
         </Style>
     </Page.Resources>
     <Grid Background="#BED6F6">
@@ -36,6 +38,8 @@
                                     <TextBlock Text="{Binding Path=Name}">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
+                                                <Setter Property="MaxWidth" Value="{Binding Width, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBox}}}"/>
+                                                <Setter Property="TextWrapping" Value="Wrap"/>
                                                 <Setter Property="FontFamily" Value="Verdana"/>
                                                 <Setter Property="Foreground" Value="#2D0A8F" />
                                                 <Setter Property="FontSize" Value="12"/>
@@ -49,6 +53,7 @@
                     </ListBox.GroupStyle>
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
+                            <Setter Property="Width" Value="189"/>
                             <Setter Property="Margin" Value="1"/>
                             <Setter Property="Padding" Value="0"/>
                             <Setter Property="BorderThickness" Value="0"/>
@@ -64,7 +69,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <Button Content="{Binding Path=Name}" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}">
+                                <Button HorizontalContentAlignment="Stretch" CommandParameter="{Binding Path=Url}" Command="{Binding ElementName=page, Path=DataContext.OpenLectionCommand}">
+                                    <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" TextAlignment="Left" />
                                 </Button>
                             </Grid>
                         </DataTemplate>

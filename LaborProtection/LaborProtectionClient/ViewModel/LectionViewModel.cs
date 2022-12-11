@@ -23,7 +23,7 @@ namespace LaborProtectionClient.ViewModel
             var list = new List<Lection>();
             foreach (var file in Directory.GetFiles(lectionsPath,"", SearchOption.AllDirectories))
             {
-                list.Add(new Lection() {Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileName(file), Url = file });
+                list.Add(new Lection() {Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileNameWithoutExtension(file), Url = file });
             }
             var view = new CollectionViewSource();
             view.GroupDescriptions.Add(new PropertyGroupDescription("Group"));
