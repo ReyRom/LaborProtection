@@ -35,13 +35,13 @@ namespace LaborProtectionClient.Model
                     answer.IsCorrect = answ.HasAttribute("IsCorrect");
                     question.Answers.Add(answer);
                 }
+                question.Answers = question.Answers.Shuffle().ToList();
                 list.Add(question);
             }
             var count = root.HasAttribute("Count") ? Convert.ToInt32(root.Attributes["Count"].Value) : list.Count;
             this.questions = list.Shuffle().Take(count).ToList();
             this.Name = root.Attributes["Name"].Value;
             this.Description = root.Attributes["Description"].Value;
-
         }
 
 

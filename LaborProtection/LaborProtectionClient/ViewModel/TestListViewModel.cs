@@ -23,7 +23,14 @@ namespace LaborProtectionClient.ViewModel
             Tests = new List<Test>();
             foreach (var file in Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "Tests")))
             {
-                Tests.Add(new Test(file));
+                try
+                {
+                    Tests.Add(new Test(file));
+                }
+                catch
+                {
+
+                }
             }
             Test = Tests.First();
         }

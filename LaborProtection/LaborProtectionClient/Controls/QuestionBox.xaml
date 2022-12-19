@@ -17,7 +17,6 @@
             <Setter Property="Padding" Value="10,5"/>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontFamily" Value="Verdana" />
             <Setter Property="Foreground" Value="#2D0A8F" />
@@ -42,7 +41,7 @@
             </Border.Effect>
         </Border>
         <StackPanel Margin="30">
-            <TextBlock TextWrapping="Wrap" Text="{Binding Text}"/>
+            <TextBlock TextWrapping="Wrap" Text="{Binding Text}" Margin="0,0,0,10"/>
             <StackPanel x:Name="AnswersPanel">
             </StackPanel>
             <Button Content="Отправить" Click="Button_Click" x:Name="SendButton"/>

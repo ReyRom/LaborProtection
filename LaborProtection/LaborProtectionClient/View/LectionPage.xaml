@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:LaborProtectionClient.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="WebPage">
+      
+      Title="WebPage"
+      SizeChanged="page_SizeChanged">
     <Page.Resources>
         <Style TargetType="ListBox">
             <Setter Property="BorderThickness" Value="0"/>
@@ -23,14 +25,15 @@
     </Page.Resources>
     <Grid Background="#BED6F6">
         <DockPanel>
-            <StackPanel>
+            <StackPanel x:Name="LeftMenu" >
                 <StackPanel.Style>
                     <Style TargetType="StackPanel">
                         <Setter Property="Background" Value="#A3B7EE"/>
                     </Style>
                 </StackPanel.Style>
-                <Button Content="⬅ К тестам" Click="Button_Click"></Button>
-                <ListBox ItemsSource="{Binding Lections.View}" Width="200" HorizontalContentAlignment="Stretch">
+                <Button x:Name="TestsButton" Height="30"  Content="⬅ К тестам" Click="Button_Click"></Button>
+                <ListBox x:Name="LectionsListBox" ItemsSource="{Binding Lections.View}" Width="200" HorizontalContentAlignment="Stretch" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="{Binding ElementName=page, Path=ListHeight}">
                     <ListBox.GroupStyle>
                         <GroupStyle>
                             <GroupStyle.HeaderTemplate>
@@ -77,7 +80,6 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
-            
             <WebBrowser x:Name="Viewer"/>
         </DockPanel>
 

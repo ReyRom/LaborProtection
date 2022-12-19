@@ -21,6 +21,10 @@ namespace LaborProtectionClient.View
     /// </summary>
     public partial class TestListPage : Page
     {
+        public double ListHeight
+        {
+            get => (page.ActualHeight == 0 ? 450 : page.ActualHeight) - 30;
+        }
         public TestListPage()
         {
             InitializeComponent();

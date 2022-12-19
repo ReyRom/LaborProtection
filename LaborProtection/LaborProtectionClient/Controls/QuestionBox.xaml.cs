@@ -45,6 +45,12 @@ namespace LaborProtectionClient.Controls
             timer.Tick += Timer_Tick;
         }
 
+        public void Reset()
+        {
+            timer.Stop();
+            AnswersPanel.Children.Clear();
+        }
+
         public event EventHandler TimerEnd;
 
         private void Timer_Tick(object? sender, EventArgs e)
@@ -140,7 +146,7 @@ namespace LaborProtectionClient.Controls
                 }
                 else if (answer is TextBox tb)
                 {
-                    isCorrect = ((Answer)tb.Tag).Text == tb.Text;
+                    isCorrect = ((Answer)tb.Tag).Text.ToLower() == tb.Text.ToLower();
                 }
                 if (!isCorrect) return false;
             }

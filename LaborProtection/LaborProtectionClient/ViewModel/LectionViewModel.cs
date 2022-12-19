@@ -21,7 +21,7 @@ namespace LaborProtectionClient.ViewModel
         {
             viewer = web;
             var list = new List<Lection>();
-            foreach (var file in Directory.GetFiles(lectionsPath,"", SearchOption.AllDirectories))
+            foreach (var file in Directory.GetFiles(lectionsPath, "", SearchOption.AllDirectories).Where(x => Path.GetExtension(x) == ".html"))
             {
                 list.Add(new Lection() {Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileNameWithoutExtension(file), Url = file });
             }
