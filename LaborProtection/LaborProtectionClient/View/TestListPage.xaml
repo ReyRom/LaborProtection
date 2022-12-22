@@ -44,9 +44,9 @@
                         <Setter Property="Background" Value="#A3B7EE"/>
                     </Style>
                 </StackPanel.Style>
-                <Button Content="⬅ К лекциям" Click="Button_Click" Height="30"></Button>
+                <Button Content="⬅ На главную" Click="Button_Click" Height="30"></Button>
                 <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding Test}" Width="200" HorizontalContentAlignment="Stretch"
-                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="{Binding ElementName=page, Path=ListHeight}">
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="{Binding ListHeight}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap"/>
@@ -66,7 +66,7 @@
                     <TextBlock.Margin>10</TextBlock.Margin>
                     <TextBlock.FontSize>20</TextBlock.FontSize>
                 </TextBlock>
-                <Button Content="Начать тест" FontSize="15" CommandParameter="{Binding ElementName=page, Path=DataContext.Test}" Command="{Binding ElementName=page, Path=DataContext.StartTestCommand}"></Button>
+                <Button Content="Начать тест" FontSize="15" CommandParameter="{Binding ElementName=page, Path=Test}" Command="{Binding ElementName=page, Path=StartTestCommand}"></Button>
             </StackPanel>
 
         </DockPanel>

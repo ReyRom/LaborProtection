@@ -43,33 +43,5 @@ namespace LaborProtectionClient.Model
             this.Name = root.Attributes["Name"].Value;
             this.Description = root.Attributes["Description"].Value;
         }
-
-
-        //public static Test ParseFile(string fileName)
-        //{
-        //    Test test = new Test();
-        //    var list = new List<Question>();
-        //    XmlDocument doc = new XmlDocument();
-        //    doc.LoadXml(File.ReadAllText(fileName));
-        //    var root = doc.DocumentElement;
-        //    var items = root.ChildNodes;
-        //    foreach (XmlElement item in items)
-        //    {
-        //        Question question = new Question();
-        //        question.Text = item.Attributes["Text"].Value;
-        //        question.Type = (QuestionType)Enum.Parse(typeof(QuestionType), item.Attributes["Type"].Value);
-        //        foreach (XmlElement answ in item.ChildNodes)
-        //        {
-        //            Answer answer = new Answer();
-        //            answer.Text = answ.InnerText;
-        //            answer.IsCorrect = answ.HasAttribute("IsCorrect");
-        //            question.Answers.Add(answer);
-        //        }
-        //        list.Add(question);
-        //    }
-        //    test.Questions = list.Shuffle().Take(Int32.Parse(root.Attributes["Count"].Value)).ToList();
-
-        //    return test;
-        //}
     }
 }

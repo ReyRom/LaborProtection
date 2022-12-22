@@ -10,7 +10,10 @@
       Title="TestPage">
 
     <Grid Background="#BED6F6">
-        <Controls:QuestionBox VerticalAlignment="Center" MaxWidth="600" x:Name="QuestionBox" Question="{Binding ElementName=page, Path=DataContext.CurrentQuestion}" Loaded="QuestionBox_Loaded" SendButton_Click="QuestionBox_NextQuestion" TimerEnd="QuestionBox_NextQuestion">
+        <StackPanel VerticalAlignment="Center">
+        <Controls:QuestionBox MaxWidth="600" x:Name="QuestionBox" Question="{Binding ElementName=page, Path=DataContext.CurrentQuestion}" Loaded="QuestionBox_Loaded" SendButton_Click="QuestionBox_NextQuestion" TimerEnd="QuestionBox_NextQuestion">
         </Controls:QuestionBox>
+            <Label Content="Завершить тест" FontSize="15" HorizontalAlignment="Center" Cursor="Hand" MouseDown="Label_MouseDown"/>
+        </StackPanel>
     </Grid>
 </Page>

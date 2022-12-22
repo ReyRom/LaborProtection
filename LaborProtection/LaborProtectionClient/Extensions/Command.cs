@@ -21,12 +21,10 @@ namespace LaborProtectionClient.Extensions
             this.execute = execute;
             this.canExecute = canExecute;
         }
-
         public bool CanExecute(object? parameter)
         {
             return this.canExecute == null || this.canExecute(parameter);
         }
-
         public void Execute(object? parameter)
         {
             this.execute(parameter);

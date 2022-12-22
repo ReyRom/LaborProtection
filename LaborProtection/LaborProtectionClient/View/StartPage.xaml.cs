@@ -1,5 +1,4 @@
-﻿using LaborProtectionClient.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,17 +27,22 @@ namespace LaborProtectionClient.View
 
         private void LectionButton_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModel.MainFrame.Navigate(new LectionPage());
+            MainWindow._MainFrame.Navigate(new LectionPage());
         }
 
         private void TestingButton_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModel.MainFrame.Navigate(new TestListPage());
+            MainWindow._MainFrame.Navigate(new TestListPage());
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow._MainFrame.Navigate(new HelpPage());
         }
     }
 }

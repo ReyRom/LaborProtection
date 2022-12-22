@@ -1,5 +1,4 @@
-﻿using LaborProtectionClient.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,12 +24,37 @@ namespace LaborProtectionClient.View
         {
             InitializeComponent();
 
-            DataContext= new ResultViewModel(maxScore, score);
+            DataContext = this; 
+            
+            result = GetMark(maxScore, score).ToString();
+            Score = $"{score}/{maxScore}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModel.MainFrame.Navigate(new TestListPage());
+            MainWindow._MainFrame.Navigate(new TestListPage());
+        }
+
+        private string result;
+        public string Result { get => result; }
+        public string Score { get; set; }
+
+        public int GetMark(double maxScore, double score)
+        {
+            var percent = score / maxScore * 100;
+            if (percent >= 85)
+            {
+                return 5;
+            }
+            if (percent >= 75)
+            {
+                return 4;
+            }
+            if (percent >= 60)
+            {
+                return 3;
+            }
+            return 2;
         }
     }
 }

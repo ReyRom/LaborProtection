@@ -1,5 +1,4 @@
 ﻿using LaborProtectionClient.Model;
-using LaborProtectionClient.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,9 +26,10 @@ namespace LaborProtectionClient.View
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel(MainFrame);
-
-            MainFrame.Navigate(new StartPage());
+            DataContext = this;
+            _MainFrame = MainFrame;
+            _MainFrame.Navigate(new StartPage());
         }
+        public static Frame? _MainFrame { get; set; }
     }
 }

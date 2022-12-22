@@ -31,9 +31,9 @@
                         <Setter Property="Background" Value="#A3B7EE"/>
                     </Style>
                 </StackPanel.Style>
-                <Button x:Name="TestsButton" Height="30"  Content="⬅ К тестам" Click="Button_Click"></Button>
+                <Button x:Name="TestsButton" Height="30"  Content="⬅ На главную" Click="Button_Click"></Button>
                 <ListBox x:Name="LectionsListBox" ItemsSource="{Binding Lections.View}" Width="200" HorizontalContentAlignment="Stretch" 
-                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="{Binding ElementName=page, Path=ListHeight}">
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="{Binding ListHeight}">
                     <ListBox.GroupStyle>
                         <GroupStyle>
                             <GroupStyle.HeaderTemplate>

@@ -1,6 +1,7 @@
 ﻿using LaborProtectionClient.Model;
 using System;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -129,7 +130,6 @@ namespace LaborProtectionClient.Controls
                         item = null;
                         break;
                 }
-
                 item.Tag = answer;
                 AnswersPanel.Children.Add(item);
             }

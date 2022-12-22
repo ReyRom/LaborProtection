@@ -28,10 +28,10 @@
     <Grid Background="#BED6F6">
         
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Охрана труда"/>
-            <TextBlock Text="в образовательных организациях"/>
+            <TextBlock TextWrapping="Wrap" Text="Правила охраны труда и пожарной безопасности для работников общеобразовательных организаций"/>
             <Button Content="Лекции" Click="LectionButton_Click"/>
             <Button Content="Тестирование" Click="TestingButton_Click"/>
+            <Button Content="О программе" Click="HelpButton_Click"/>
             <Button Content="Выход" Click="ExitButton_Click"/>
         </StackPanel>
     </Grid>
