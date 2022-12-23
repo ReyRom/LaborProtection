@@ -7,7 +7,7 @@
         xmlns:Controls="clr-namespace:LaborProtectionClient.Controls"
         mc:Ignorable="d"
         MinHeight="450" MinWidth="800"
-        Height="450" Width="800" Icon="/icon.png" >
+        Height="450" Width="800">
     <Grid>
         <DockPanel>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">

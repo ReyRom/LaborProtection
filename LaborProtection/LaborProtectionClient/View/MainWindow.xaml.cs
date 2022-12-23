@@ -1,5 +1,6 @@
 ﻿using LaborProtectionClient.Model;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

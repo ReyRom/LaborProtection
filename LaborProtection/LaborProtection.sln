@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaborProtectionClient", "LaborProtectionClient\LaborProtectionClient.csproj", "{78F14BF4-70F3-4A11-A9ED-A02691ABDE37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaborProtectionClient", "LaborProtectionClient\LaborProtectionClient.csproj", "{78F14BF4-70F3-4A11-A9ED-A02691ABDE37}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LaborProtection", "LaborProtection\LaborProtection.vdproj", "{FB5115D1-1AF5-4A41-890E-8D87C16332D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{78F14BF4-70F3-4A11-A9ED-A02691ABDE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F14BF4-70F3-4A11-A9ED-A02691ABDE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F14BF4-70F3-4A11-A9ED-A02691ABDE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB5115D1-1AF5-4A41-890E-8D87C16332D5}.Debug|Any CPU.ActiveCfg = Debug
+		{FB5115D1-1AF5-4A41-890E-8D87C16332D5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,20 +35,19 @@ namespace LaborProtectionClient.View
             DataContext = this;
 
             Tests = new List<Test>();
-            foreach (var file in Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "Tests")))
+            if (Directory.Exists(Path.Combine(Environment.CurrentDirectory, "Tests")))
             {
-                try
+                foreach (var file in Directory.GetFiles(Path.Combine(Environment.CurrentDirectory, "Tests")))
                 {
-                    Tests.Add(new Test(file));
-                }
-                catch
-                {
+                    try
+                    {
+                        Tests.Add(new Test(file));
+                    }
+                    catch
+                    {
 
+                    }
                 }
-            }
-            if (Tests.Count < 1)
-            {
-                DialogWindow.Show("Файлы лекций не обнаружены");
             }
             Test = Tests.FirstOrDefault();
         }
@@ -84,6 +83,15 @@ namespace LaborProtectionClient.View
                     {
                         MainWindow._MainFrame.Navigate(new TestPage((Test)obj));
                     }));
+            }
+        }
+
+        private void page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Tests.Count < 1)
+            {
+                DialogWindow.Show("Файлы тестов не обнаружены");
+                MainWindow._MainFrame.Navigate(new StartPage());
             }
         }
     }

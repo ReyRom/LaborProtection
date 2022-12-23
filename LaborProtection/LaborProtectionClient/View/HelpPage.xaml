@@ -33,9 +33,10 @@
             <TextBlock Text="О программе" FontSize="30" Margin="10" DockPanel.Dock="Top"/>
             <DockPanel DockPanel.Dock="Bottom">
             <Button Height="30" Content="⬅ На главную" Click="Button_Click"></Button>
-            <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="©Садовский Роман, 2022. LaborProtection "/>
+            <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock TextWrapping="Wrap" Text="Обучающая программа «Правила охраны труда и пожарной безопасности для работников общеобразовательных организаций»"/>
                     <TextBlock Text="{Binding StringFormat=v.{0}, Path=Version}"/>
+                    <TextBlock Text="©Садовский Роман, 2022."/>
                 </StackPanel>
             </DockPanel>
             <WebBrowser x:Name="Viewer" DockPanel.Dock="Left"/>  

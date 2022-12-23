@@ -19,18 +19,20 @@
 
   <ItemGroup>
     <None Remove="help.html" />
-    <None Remove="icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="icon.ico" />
-    <Content Include="icon.png">
+    <EmbeddedResource Include="icon.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="help.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>

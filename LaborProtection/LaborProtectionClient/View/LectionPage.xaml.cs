@@ -29,25 +29,25 @@ namespace LaborProtectionClient.View
         {
             get => (page.ActualHeight==0?450: page.ActualHeight) - 30;
         }
-
+        List<Lection> lections;
         public LectionPage()
         {
             InitializeComponent();
             DataContext = this;
 
-            var list = new List<Lection>();
-            foreach (var file in Directory.GetFiles(lectionsPath, "", SearchOption.AllDirectories).Where(x => Path.GetExtension(x) == ".html"))
+            lections = new List<Lection>();
+            if (Directory.Exists(lectionsPath))
             {
-                list.Add(new Lection() { Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileNameWithoutExtension(file), Url = file });
+                foreach (var file in Directory.GetFiles(lectionsPath, "", SearchOption.AllDirectories).Where(x => Path.GetExtension(x) == ".html"))
+                {
+                    lections.Add(new Lection() { Group = Path.GetDirectoryName(file).Replace(lectionsPath, "").TrimStart('\\'), Name = Path.GetFileNameWithoutExtension(file), Url = file });
+                }
+
+                var view = new CollectionViewSource();
+                view.GroupDescriptions.Add(new PropertyGroupDescription("Group"));
+                view.Source = lections;
+                Lections = view;
             }
-            if (list.Count<1)
-            {
-                DialogWindow.Show("Файлы лекций не обнаружены");
-            }
-            var view = new CollectionViewSource();
-            view.GroupDescriptions.Add(new PropertyGroupDescription("Group"));
-            view.Source = list;
-            Lections = view;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -75,6 +75,15 @@ namespace LaborProtectionClient.View
                     {
                         Viewer.Navigate(new Uri(obj.ToString()));
                     }));
+            }
+        }
+
+        private void page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (lections.Count < 1)
+            {
+                DialogWindow.Show("Файлы лекций не обнаружены");
+                MainWindow._MainFrame.Navigate(new StartPage());
             }
         }
     }
